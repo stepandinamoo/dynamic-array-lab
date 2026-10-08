@@ -1,5 +1,7 @@
 #pragma once
 #include <cstddef>
+#include <new>          
+#include <stdexcept>    
 
 class DynamicArray {
 private:
@@ -7,7 +9,7 @@ private:
     int size;
 
 public:
-
+    
     explicit DynamicArray(int n);
     ~DynamicArray();
 
