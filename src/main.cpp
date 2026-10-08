@@ -10,7 +10,7 @@ int main() {
     a.set(2, 30);
     a.print();
     std::cout << "a[1] = " << a.get(1) << '\n';
-
+    //3
     try { a.set(5, 1); }   catch (const std::exception& e) { std::cout << "set err: " << e.what() << '\n'; }
     try { a.set(0, 999); } catch (const std::exception& e) { std::cout << "set err: " << e.what() << '\n'; }
     try { a.get(99); }     catch (const std::exception& e) { std::cout << "get err: " << e.what() << '\n'; }
