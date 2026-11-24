@@ -1,14 +1,10 @@
 #include "DynamicArray.h"
 #include <iostream>
 
-// ---------- Задание 1 ----------
-
 DynamicArray::DynamicArray(int n) : size(n), data(nullptr) {
     if (n < 0)
         throw std::invalid_argument("Size cannot be negative");
-
     if (n > 0) {
-        // Если память не выделится — new сам бросит std::bad_alloc
         data = new int[n]();
     }
 }
@@ -39,23 +35,19 @@ int DynamicArray::get(int index) const {
     return data[index];
 }
 
-// ---------- Задание 2 ----------
-
 DynamicArray::DynamicArray(const DynamicArray& other)
     : size(other.size), data(nullptr) {
     if (size > 0) {
-        data = new int[size];               // может бросить std::bad_alloc
+        data = new int[size];             
         for (int i = 0; i < size; ++i) data[i] = other.data[i];
     }
 }
-
-// ---------- Задание 3 ----------
 
 void DynamicArray::push_back(int value) {
     if (value < -100 || value > 100)
         throw std::invalid_argument("Value must be in [-100, 100]");
 
-    int* newData = new int[size + 1];        // может бросить std::bad_alloc
+    int* newData = new int[size + 1];   
     for (int i = 0; i < size; ++i) newData[i] = data[i];
     newData[size] = value;
 
@@ -64,7 +56,6 @@ void DynamicArray::push_back(int value) {
     ++size;
 }
 
-// ---------- Задание 4 ----------
 
 void DynamicArray::add(const DynamicArray& other) {
     int n = (size < other.size) ? size : other.size;
